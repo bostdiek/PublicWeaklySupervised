@@ -96,8 +96,8 @@ def MakeMultiGSamples(parameters_A, parameters_B, percentage_A, percentage_A_Exp
     zeros = np.zeros([1,setB.shape[1]])
     setB=np.transpose(np.append(setB,zeros,axis=0))
     
-    print "SetA shape:",setA.shape
-    print "SetB shape:",setB.shape
+    print "Set1 shape:",setA.shape
+    print "Set2 shape:",setB.shape
     
     
     
