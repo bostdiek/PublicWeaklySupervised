@@ -34,40 +34,40 @@ def MakeErrorTrials(err, samples=100):
     YTrain1 = Set_40_60[:,3]
 
 #     Make the test data set: Stays the same for all cases
-    Set_40_60t = MakeMultiGSamples(set0nums, set1nums, 0.4,0.4, 100000)
-    Set_70_30t = MakeMultiGSamples(set0nums, set1nums, 0.7,0.7, 100000)
+    Set_40_60t = MakeMultiGSamples(set0nums, set1nums, 0.4, 0.4, 100000)
+    Set_70_30t = MakeMultiGSamples(set0nums, set1nums, 0.7, 0.7, 100000)
     XTest = np.vstack([Set_40_60t[:,:3], Set_70_30t[:,:3]])
     YTest = np.append(Set_40_60t[:,3], Set_70_30t[:,3])
+
+
+    Set_70_30 = MakeMultiGSamples(set0nums, set1nums, 0.7, float(err)/100, 200000)
+
+    XTrain2 = Set_70_30[:,:3]
+    YTrain2 = Set_70_30[:,3]
+    YTrainPercentage2 = Set_70_30[:, 4]
+
+    x_train, x_valid, y_train, y_valid = train_test_split(
+                np.vstack([XTrain1, XTrain2]),
+                np.append(YTrainPercentage1, YTrainPercentage2),
+                test_size=0.2)
+
+    #Scale the data
+    scaler = StandardScaler()
+    x_train = scaler.fit_transform(x_train)
+    x_valid = scaler.transform(x_valid)
+    x_test = scaler.transform(XTest)
+
+    print "X_Train"
+    print x_train[:32]
+
+    print "Y_Train"
+    print y_train[:32]
 
     outarray = [['ErrorBase', 'RunNumber', 'ErrorPercent', 'Label', 'ROC_AUC']]
     i = 1
     while i <= samples:
         print str(i)+'/'+str(samples),
         print '\r',
-
-        Set_70_30 = MakeMultiGSamples(set0nums, set1nums, 0.7,float(err)/100, 200000)
-
-        XTrain2 = Set_70_30[:,:3]
-        YTrain2 = Set_70_30[:,3]
-        YTrainPercentage2 = Set_70_30[:,4]
-
-        x_train, x_valid, y_train, y_valid = train_test_split(
-                    np.vstack([XTrain1,XTrain2]),
-                    np.append(YTrainPercentage1,YTrainPercentage2),
-                    test_size=0.2)
-
-        #Scale the data
-        scaler = StandardScaler()
-        x_train = scaler.fit_transform(x_train)
-        x_valid = scaler.transform(x_valid)
-        x_test = scaler.transform(XTest)
-
-        print "X_Train"
-        print x_train[:32]
-
-        print "Y_Train"
-        print y_train[:32]
-
 
         #Re-initialize the model
         WeaklyModel= Sequential()
