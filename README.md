@@ -1,8 +1,9 @@
-# On the robustness of Weakly Supervised Neural Networks
+# (Machine) Learning to Do More with Less
 
 This page contains the code and data used for the paper found at ...
 
 ## Abstract
+Determining the best method for training a machine learning algorithm is critical to maximizing its ability to classify data. In this paper, we compare the standard "fully supervised" approach (that relies on knowledge of event-by-event truth-level labels) with a recently proposed method that instead utilizes class ratios as the only discriminating information provided during training.  This so-called "weakly supervised" method has access to less information than the fully supervised approach, and yet is still able to yield impressive discriminating power.  In addition, weak supervision seems particularly well suited to particle physics since quantum mechanics is incompatible with the notion of mapping an individual event onto any single Feynman diagram. We examine the technique in detail -- both analytically and numerically --  with a focus on the robustness to issues of mischaracterizing the training samples.  Weakly supervised networks turn out to be remarkably insensitive to systematic mismodeling. Furthermore, we demonstrate that the event level outputs for weakly versus fully supervised networks are probing different kinematics, even though the numerical quality metrics are essentially identical. This implies that it should be possible to improve the overall classification ability by combining the output from the two types of networks. For concreteness, we apply this technology to a signature of beyond the Standard Model physics to demonstrate that all these impressive features continue to hold in a scenario of relevance to the LHC.   
 
 ## Notes
  * WeakSupervisionDemo.ipynb is a jupyter notebook that contains a quick demo on how to train weakly supervised networks with Keras. It also shows the toy model distributions used for our paper.
