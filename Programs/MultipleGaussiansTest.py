@@ -22,10 +22,27 @@ from SampleGenerators import *
 from WeakCostFunction import *
 
 def MakeErrorTrials(err, samples=100):
+    """"
+    Trains a number of neural networks on the same data. For each training,
+    the ROC curve and the area under the curve are saved. The trained model weights
+    are also saved for later use. There is no output of the function, but results are
+    saved to disk.
+
+    Args:
+        err(int): the label for the data set which has a true fraction of 0.7.
+            This should be done as a percentage. So to use the true label, err=70
+        samples(int): the different number of trainings
+    """
 
 #   Take from the toy model
-    set0nums = [[[(26,8),0.5],[(5,4),0.5]],[[(0.09,0.04),0.5],[(-0.01,0.03),0.5]],[[(0.45,0.04),0.5],[(0.08,0.05),0.5]]]
-    set1nums = [[[(18,7),0.5],[(38,9),0.5]],[[(-0.06,0.04),0.5],[(0.15,0.03),0.5]],[[(0.23,0.05),0.5],[(0.4,0.08),0.5]]]
+    set0nums = [[[(26,8),0.5],[(5,4),0.5]],
+                [[(0.09,0.04),0.5],[(-0.01,0.03),0.5]],
+                [[(0.45,0.04),0.5],[(0.08,0.05),0.5]]
+               ]
+    set1nums = [[[(18,7),0.5],[(38,9),0.5]],
+                [[(-0.06,0.04),0.5],[(0.15,0.03),0.5]],
+                [[(0.23,0.05),0.5],[(0.4,0.08),0.5]]
+               ]
 
 #     Make the first data set
     Set_40_60=MakeMultiGSamples(set0nums, set1nums, 0.4,0.4, 200000)
