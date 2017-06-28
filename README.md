@@ -1,5 +1,4 @@
 ## (Machine) Learning to Do More with Less
-***
 
  * Timothy Cohen
  * Marat Freytsis
