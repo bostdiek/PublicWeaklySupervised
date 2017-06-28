@@ -115,7 +115,8 @@ def MakeErrorTrials(err, samples=100):
         auc_score = metrics.auc(fpr,tpr)
         if auc_score != 0:
             if auc_score < 0.5: #got flipped
-                fpr, tpr, thresh = metrics.roc_curve(YTest[:],preds[:])
+                YTest = 1 - YTest
+                tpr, fpr, thresh = metrics.roc_curve(YTest[:],preds[:])
                 auc_score = metrics.auc(fpr,tpr)
             outarray.append([err, i, (float(err)/100. )/0.7, YTrainPercentage2[0], auc_score])
             print "AUC:{0}".format(auc_score)
