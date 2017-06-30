@@ -1,4 +1,5 @@
 ## (Machine) Learning to Do More with Less
+https://arxiv.org/abs/1706.09451
 
  * Timothy Cohen
  * Marat Freytsis
@@ -15,3 +16,16 @@ Determining the best method for training a machine learning algorithm is critica
 * 'Functions' contains a sample generator for our bi-modal distributions. An example of how to use this function can be found in the WeakSupervisionDemo.ipynb notebook. The explicit definition of the weak cost function is also in this directory.
 
 * Lastly, the 'Data' folder contains both the BSM Monte Carlo data, saved Keras model weights, and the results of the mis-labeled data sets.
+
+Please cite as
+```
+@article{Cohen:2017exh,
+      author         = "Cohen, Timothy and Freytsis, Marat and Ostdiek, Bryan",
+      title          = "{(Machine) Learning to Do More with Less}",
+      year           = "2017",
+      eprint         = "1706.09451",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1706.09451;%%"
+}
+```
